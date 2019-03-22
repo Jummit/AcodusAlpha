@@ -24,6 +24,9 @@ tracks/0/keys = {
 [node name="Ship" type="Sprite"]
 texture = ExtResource( 1 )
 centered = false
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Camera" type="Camera2D" parent="."]
 current = true
@@ -34,16 +37,21 @@ script = ExtResource( 2 )
 anims/switch_room = SubResource( 1 )
 
 [node name="Rooms" type="Node2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Living" parent="Rooms" instance=ExtResource( 3 )]
-position = Vector2( 319.644, 211.393 )
+position = Vector2( 330, 220 )
+scale = Vector2( 2.89799, 0.828564 )
 
 [node name="Cockpit" parent="Rooms" instance=ExtResource( 4 )]
-position = Vector2( 962.681, 233.116 )
+position = Vector2( 962.681, 220 )
+scale = Vector2( 1.00309, 0.974678 )
 
 [node name="Engines" parent="Rooms" instance=ExtResource( 3 )]
-position = Vector2( 317.325, 625.73 )
+position = Vector2( 330, 625.73 )
 
 [node name="Working" parent="Rooms" instance=ExtResource( 3 )]
-position = Vector2( 964.339, 623.343 )
+position = Vector2( 962.681, 623.343 )
 
