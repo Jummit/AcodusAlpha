@@ -9,9 +9,9 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="210mm"
-   height="297mm"
-   viewBox="0 0 210 297"
+   width="77.279999mm"
+   height="96.846077mm"
+   viewBox="0 0 77.279999 96.846077"
    version="1.1"
    id="svg8"
    inkscape:export-filename="/home/jummit/Documents/Programming/Godot3/ToiShip/Ship/Rooms/Devices/Device.png"
@@ -29,8 +29,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.35"
-     inkscape:cx="126.59314"
-     inkscape:cy="326.45914"
+     inkscape:cx="124.38932"
+     inkscape:cy="32.491556"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -47,20 +47,21 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
   <path
      style="fill:#262626;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-     d="M 0.58309514,8.3103621 13.229165,2.5565461 77.863094,1.4226181 0.58309614,8.3103621 68.618812,98.268688 l 9.24428,-8.96661 2e-6,-87.8794599"
+     d="M 0,6.887744 12.64607,1.133928 77.279999,0 10e-7,6.887744 68.035717,96.84607 77.279997,87.87946 77.279999,0"
      id="path4577"
      inkscape:connector-curvature="0"
      sodipodi:nodetypes="ccccccc" />
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
-     id="layer1">
+     id="layer1"
+     transform="translate(-0.58309514,-1.4226181)">
     <rect
        style="opacity:1;fill:#3a3a3a;fill-opacity:1;stroke:none;stroke-width:0.69999999;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
        id="rect10-7"
