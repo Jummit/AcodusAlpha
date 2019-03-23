@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://ShipInterior/Devices/Device.tscn" type="PackedScene" id=1]
+[ext_resource path="res://ShipInterior/Devices/CockpitView/CockpitView.svg" type="Texture" id=2]
+[ext_resource path="res://ShipInterior/Devices/CockpitView/CockpitView.gd" type="Script" id=3]
+[ext_resource path="res://ShipInterior/Devices/CockpitView/SpaceEnvironment.tres" type="Environment" id=4]
+
+[sub_resource type="SphereMesh" id=1]
+
+[sub_resource type="OpenSimplexNoise" id=2]
+
+[sub_resource type="NoiseTexture" id=3]
+seamless = true
+noise = SubResource( 2 )
+
+[sub_resource type="SpatialMaterial" id=4]
+albedo_color = Color( 0, 1, 0.109804, 1 )
+albedo_texture = SubResource( 3 )
+
+[node name="CockpitView" index="0" instance=ExtResource( 1 )]
+texture = ExtResource( 2 )
+script = ExtResource( 3 )
+
+[node name="CollisionShape" parent="Area" index="0"]
+position = Vector2( 286.861, 180.724 )
+
+[node name="ViewportContainer" type="ViewportContainer" parent="." index="1"]
+show_behind_parent = true
+margin_left = 14.0
+margin_top = 14.0
+margin_right = 566.0
+margin_bottom = 350.0
+mouse_filter = 2
+stretch = true
+
+[node name="Viewport" type="Viewport" parent="ViewportContainer" index="0"]
+size = Vector2( 552, 336 )
+handle_input_locally = false
+render_target_update_mode = 3
+
+[node name="Planet" type="MeshInstance" parent="ViewportContainer/Viewport" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.18485, -0.540445, -4.09061 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 4 )
+
+[node name="Sun" type="DirectionalLight" parent="ViewportContainer/Viewport" index="1"]
+transform = Transform( 0.295751, -0.739592, -0.604595, 0.682864, -0.2789, 0.675212, -0.668003, -0.612551, 0.422556, 0, 0, 0 )
+
+[node name="Ship" type="Spatial" parent="ViewportContainer/Viewport" index="2"]
+
+[node name="Camera" type="Camera" parent="ViewportContainer/Viewport/Ship" index="0"]
+current = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="ViewportContainer/Viewport" index="3"]
+environment = ExtResource( 4 )
+

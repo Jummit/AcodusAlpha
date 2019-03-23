@@ -1,6 +1,7 @@
 extends Camera2D
+class_name ShipCamera
 
-signal room_switched(room_name)
+signal room_switched(room)
 
 """
 The camera viewing the spaceship rooms
@@ -35,20 +36,31 @@ func _get_movement_input() -> Vector2:
 	return movement
 
 
-func get_current_room() -> Node:
+func get_current_room() -> Room:
 	return rooms[current_room_position.y][current_room_position.x]
 
 
+func does_room_exist(room_position : Vector2) -> bool:
+	return room_position.x >= 0 and room_position.x <= 1 and room_position.y >= 0 and room_position.y <= 1
+
+
 func switch_to_room(room_position : Vector2) -> bool:
-	if not (room_position.x >= 0 and room_position.x <= 1 and room_position.y >= 0 and room_position.y <= 1):
+	if not does_room_exist(room_position):
+		return false
+	if room_position == current_room_position:
 		return false
 	
 	current_room_position = room_position
 	
+	# animation setup
 	var animation = animation_player.get_animation("switch_room")
 	animation.track_set_key_value(0, 0, position)
 	animation.track_set_key_value(0, 1, get_current_room().position)
 	animation_player.play("switch_room")
+	
+	#position = get_current_room().position
+	
+	emit_signal("room_switched", get_current_room())
 	
 	return true
 

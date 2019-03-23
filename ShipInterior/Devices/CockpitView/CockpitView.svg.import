@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/SpaceHdri.png-c5927c5a8fe7a94599d2375f183858ef.stex"
+path="res://.import/CockpitView.svg-5fa72fcace0c801336681768e204d5c9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Ship/Devices/CockpitView/SpaceHdri.png"
-dest_files=[ "res://.import/SpaceHdri.png-c5927c5a8fe7a94599d2375f183858ef.stex" ]
+source_file="res://ShipInterior/Devices/CockpitView/CockpitView.svg"
+dest_files=[ "res://.import/CockpitView.svg-5fa72fcace0c801336681768e204d5c9.stex" ]
 
 [params]
 

@@ -1,13 +1,13 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Ship/SpaceshipInterior.png" type="Texture" id=1]
-[ext_resource path="res://Ship/Camera.gd" type="Script" id=2]
-[ext_resource path="res://Ship/Rooms/Room.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Ship/Rooms/CockpitRoom/CockpitRoom.tscn" type="PackedScene" id=4]
+[ext_resource path="res://ShipInterior/SpaceShipInterior.svg" type="Texture" id=1]
+[ext_resource path="res://ShipInterior/Camera.gd" type="Script" id=2]
+[ext_resource path="res://ShipInterior/Rooms/Room.tscn" type="PackedScene" id=3]
+[ext_resource path="res://ShipInterior/Rooms/CockpitRoom/CockpitRoom.tscn" type="PackedScene" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "switch_room"
-length = 0.1
+length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
@@ -15,43 +15,42 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.217637, 0.143587 ),
 "update": 0,
 "values": [ Vector2( 0, 0 ), Vector2( 0, 0 ) ]
 }
 
-[node name="Ship" type="Sprite"]
+[node name="ShipInterior" type="Sprite"]
+scale = Vector2( 0.98, 0.98 )
 texture = ExtResource( 1 )
 centered = false
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="Camera" type="Camera2D" parent="."]
+position = Vector2( 0, 512 )
+offset = Vector2( 0, -500 )
+anchor_mode = 0
 current = true
-zoom = Vector2( 0.45, 0.45 )
+zoom = Vector2( 0.5, 0.5 )
+drag_margin_h_enabled = false
+drag_margin_v_enabled = false
 script = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Camera"]
 anims/switch_room = SubResource( 1 )
 
 [node name="Rooms" type="Node2D" parent="."]
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="Living" parent="Rooms" instance=ExtResource( 3 )]
-position = Vector2( 330, 220 )
-scale = Vector2( 2.89799, 0.828564 )
+position = Vector2( 0, 512 )
 
 [node name="Cockpit" parent="Rooms" instance=ExtResource( 4 )]
-position = Vector2( 962.681, 220 )
-scale = Vector2( 1.00309, 0.974678 )
+position = Vector2( 640, 512 )
+script = null
 
 [node name="Engines" parent="Rooms" instance=ExtResource( 3 )]
-position = Vector2( 330, 625.73 )
+position = Vector2( 0, 1024 )
 
 [node name="Working" parent="Rooms" instance=ExtResource( 3 )]
-position = Vector2( 962.681, 623.343 )
+position = Vector2( 640, 1025.51 )
 

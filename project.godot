@@ -8,15 +8,26 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Node2D",
+"class": "Room",
+"language": "GDScript",
+"path": "res://ShipInterior/Rooms/Room.gd"
+}, {
+"base": "Camera2D",
+"class": "ShipCamera",
+"language": "GDScript",
+"path": "res://ShipInterior/Camera.gd"
+} ]
 _global_script_class_icons={
-
+"Room": "",
+"ShipCamera": ""
 }
 
 [application]
 
 config/name="ToiShip"
-run/main_scene="res://Ship/Ship.tscn"
+run/main_scene="res://ShipInterior/ShipInterior.tscn"
 config/icon="res://icon.png"
 
 [display]
@@ -24,6 +35,8 @@ config/icon="res://icon.png"
 window/size/width=1280
 window/size/height=1024
 window/size/fullscreen=true
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
 
 [rendering]
 

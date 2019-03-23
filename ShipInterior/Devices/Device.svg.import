@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/SpaceshipInterior.png-8dbcc080123609e66d1273edfc371ca0.stex"
+path="res://.import/Device.svg-f3c640854bd087779276d71acedb42d1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Ship/SpaceshipInterior.png"
-dest_files=[ "res://.import/SpaceshipInterior.png-8dbcc080123609e66d1273edfc371ca0.stex" ]
+source_file="res://ShipInterior/Devices/Device.svg"
+dest_files=[ "res://.import/Device.svg-f3c640854bd087779276d71acedb42d1.stex" ]
 
 [params]
 
