@@ -9,6 +9,8 @@
 extents = Vector2( 294.226, 180.12 )
 
 [sub_resource type="SphereMesh" id=1]
+radius = 100.0
+height = 200.0
 
 [sub_resource type="OpenSimplexNoise" id=2]
 
@@ -52,6 +54,7 @@ material/0 = SubResource( 4 )
 transform = Transform( 0.295751, -0.739592, -0.604595, 0.682864, -0.2789, 0.675212, -0.668003, -0.612551, 0.422556, 0, 0, 0 )
 
 [node name="Ship" type="Spatial" parent="ViewportContainer/Viewport" index="2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 142.128 )
 
 [node name="Camera" type="Camera" parent="ViewportContainer/Viewport/Ship" index="0"]
 current = true
