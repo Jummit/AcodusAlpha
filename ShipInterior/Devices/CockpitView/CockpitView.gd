@@ -1,7 +1,9 @@
 extends "res://ShipInterior/Devices/Device.gd"
 
 """
-Shows the space outside in 3D projected by a viewport.
+Shows the space outside in 3D projected by a viewport
+
+Handles ship movement input. Is selected when clicked, deselected when escape is pressed.
 """
 
 onready var ship_camera : ShipCamera = $"../../../../Camera"
@@ -10,7 +12,7 @@ onready var ship : = $ViewportContainer/Viewport/Ship
 
 var selected : bool setget set_selected, get_selected
 
-func set_selected(v : bool):
+func set_selected(v : bool) -> void:
 	selected = v
 	ship_camera.set_process(not selected)
 
@@ -39,11 +41,11 @@ func _get_movement_input() -> Vector3:
 	return input
 
 
-func process_movement_input(input : Vector3):
+func process_movement_input(input : Vector3) -> void:
 	input = Transform(self.ship.transform.basis, Vector3(0, 0, 0)).xform(input)
 	self.ship.translation += input / 10
 
-func process_rotation_input(input : Vector3):
+func process_rotation_input(input : Vector3) -> void:
 	input /= 40
 	input = -input
 	
@@ -64,6 +66,5 @@ func _process(delta : float) -> void:
 			process_movement_input(input)
 
 
-func _on_input_event(viewport, event, shape_idx):
-	if event is InputEventMouseButton and event.pressed and event.button_index == BUTTON_LEFT:
+func _on_clicked() -> void:
 		set_selected(true)

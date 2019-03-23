@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://ShipInterior/SpaceShipInterior.svg" type="Texture" id=1]
 [ext_resource path="res://ShipInterior/Camera.gd" type="Script" id=2]
-[ext_resource path="res://ShipInterior/Rooms/Room.tscn" type="PackedScene" id=3]
+[ext_resource path="res://ShipInterior/Rooms/LivingRoom/LivingRoom.tscn" type="PackedScene" id=3]
 [ext_resource path="res://ShipInterior/Rooms/CockpitRoom/CockpitRoom.tscn" type="PackedScene" id=4]
+[ext_resource path="res://ShipInterior/Rooms/Room.tscn" type="PackedScene" id=5]
+[ext_resource path="res://ShipInterior/Rooms/WorkingRoom/WorkingRoom.tscn" type="PackedScene" id=6]
 
 [sub_resource type="Animation" id=1]
 resource_name = "switch_room"
@@ -47,9 +49,9 @@ position = Vector2( 0, 512 )
 [node name="Cockpit" parent="Rooms" instance=ExtResource( 4 )]
 position = Vector2( 640, 512 )
 
-[node name="Engines" parent="Rooms" instance=ExtResource( 3 )]
+[node name="Engines" parent="Rooms" instance=ExtResource( 5 )]
 position = Vector2( 0, 1024 )
 
-[node name="Working" parent="Rooms" instance=ExtResource( 3 )]
-position = Vector2( 640, 1025.51 )
+[node name="Working" parent="Rooms" instance=ExtResource( 6 )]
+position = Vector2( 640, 1025 )
 

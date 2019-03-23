@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "TextureRect",
+"class": "Item",
+"language": "GDScript",
+"path": "res://Items/Item.gd"
+}, {
 "base": "Node2D",
 "class": "Room",
 "language": "GDScript",
@@ -20,6 +25,7 @@ _global_script_classes=[ {
 "path": "res://ShipInterior/Camera.gd"
 } ]
 _global_script_class_icons={
+"Item": "",
 "Room": "",
 "ShipCamera": ""
 }
@@ -29,6 +35,10 @@ _global_script_class_icons={
 config/name="ToiShip"
 run/main_scene="res://ShipInterior/ShipInterior.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+HeldItem="*res://HeldItem/HeldItem.tscn"
 
 [display]
 
