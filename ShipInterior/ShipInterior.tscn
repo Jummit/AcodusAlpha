@@ -46,7 +46,6 @@ position = Vector2( 0, 512 )
 
 [node name="Cockpit" parent="Rooms" instance=ExtResource( 4 )]
 position = Vector2( 640, 512 )
-script = null
 
 [node name="Engines" parent="Rooms" instance=ExtResource( 3 )]
 position = Vector2( 0, 1024 )
