@@ -10,6 +10,9 @@ onready var ship_camera : ShipCamera = $"../../../../Camera"
 onready var camera : = $ViewportContainer/Viewport/Ship/Camera
 onready var ship : = $ViewportContainer/Viewport/Ship
 
+const MOVEMENT_SPEED = .01
+const ROTATION_SPEED = .01
+
 var selected : bool setget set_selected, get_selected
 
 func set_selected(v : bool) -> void:
@@ -43,11 +46,10 @@ func _get_movement_input() -> Vector3:
 
 func process_movement_input(input : Vector3) -> void:
 	input = Transform(self.ship.transform.basis, Vector3(0, 0, 0)).xform(input)
-	self.ship.translation += input / 10
+	self.ship.translation += input * MOVEMENT_SPEED
 
 func process_rotation_input(input : Vector3) -> void:
-	input /= 40
-	input = -input
+	input = -(input * ROTATION_SPEED)
 	
 	self.ship.rotate_object_local(Vector3(1, 0, 0), input.z)
 	self.ship.rotate_object_local(Vector3(0, 1, 0), input.x)

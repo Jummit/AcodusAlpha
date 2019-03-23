@@ -25,6 +25,7 @@ func _on_item_gui_input(event : InputEvent, item : Item):
 			held_item.hold(item)
 			slots.remove_child(item)
 
+
 func _on_clicked() -> void:
 	if held_item.is_holding_item():
 		var item : Item = held_item.drop()
