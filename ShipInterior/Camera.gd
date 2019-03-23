@@ -58,8 +58,6 @@ func switch_to_room(room_position : Vector2) -> bool:
 	animation.track_set_key_value(0, 1, get_current_room().position)
 	animation_player.play("switch_room")
 	
-	#position = get_current_room().position
-	
 	emit_signal("room_switched", get_current_room())
 	
 	return true
