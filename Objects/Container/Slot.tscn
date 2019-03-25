@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Objects/Container/Slot.gd" type="Script" id=1]
+
+
+[node name="Slot" type="CenterContainer"]
+margin_right = 10.0
+margin_bottom = 10.0
+script = ExtResource( 1 )
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

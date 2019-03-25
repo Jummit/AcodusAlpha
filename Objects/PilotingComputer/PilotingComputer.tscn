@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Objects/Object/Object.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Objects/PilotingComputer/PilotingComputer.svg" type="Texture" id=2]
+[ext_resource path="res://Objects/PilotingComputer/PilotingComputer.gd" type="Script" id=3]
+
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 55, 73.0632 )
+
+[node name="PilotingComputer" instance=ExtResource( 1 )]
+texture = ExtResource( 2 )
+script = ExtResource( 3 )
+
+[node name="Area2D" type="Area2D" parent="." index="0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2( -4.21054, 3.15787 )
+shape = SubResource( 1 )
+
+[connection signal="input_event" from="Area2D" to="." method="_on_input_event"]

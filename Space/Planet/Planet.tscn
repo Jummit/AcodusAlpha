@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="SphereMesh" id=1]
+radius = 50.0
+height = 100.0
+
+[node name="Planet" type="MeshInstance"]
+mesh = SubResource( 1 )
+material/0 = null
+

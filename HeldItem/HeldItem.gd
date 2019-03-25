@@ -1,7 +1,9 @@
 extends CanvasLayer
 
 """
-Manages the held item.
+Manages the held item
+
+Moves held item to the cursor position.
 """
 
 func is_holding_item() -> bool:
@@ -12,14 +14,14 @@ func get_item() -> Node:
 	return get_child(0)
 
 
-func hold(item : Item) -> void:
-	var new_item = item.duplicate()
+func hold(item : Node) -> void:
+	var new_item : Node = item.duplicate()
 	new_item.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(new_item)
 
 
-func drop() -> Item:
-	var item = get_item().duplicate()
+func drop() -> Node:
+	var item : Node = get_item().duplicate()
 	item.mouse_filter = Control.MOUSE_FILTER_PASS
 	remove_child(get_child(0))
 	return item
@@ -27,4 +29,4 @@ func drop() -> Item:
 
 func _process(delta : float) -> void:
 	if is_holding_item():
-		get_item().rect_position = get_viewport().get_mouse_position() - Vector2(100, 100)
+		get_item().rect_position = get_viewport().get_mouse_position() - get_item().rect_size/2

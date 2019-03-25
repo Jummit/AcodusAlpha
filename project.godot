@@ -9,31 +9,19 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "TextureRect",
-"class": "Item",
+"base": "MeshInstance",
+"class": "Station",
 "language": "GDScript",
-"path": "res://Items/Item.gd"
-}, {
-"base": "Node2D",
-"class": "Room",
-"language": "GDScript",
-"path": "res://ShipInterior/Rooms/Room.gd"
-}, {
-"base": "Camera2D",
-"class": "ShipCamera",
-"language": "GDScript",
-"path": "res://ShipInterior/Camera.gd"
+"path": "res://Space/Station/Station/Station.gd"
 } ]
 _global_script_class_icons={
-"Item": "",
-"Room": "",
-"ShipCamera": ""
+"Station": ""
 }
 
 [application]
 
 config/name="ToiShip"
-run/main_scene="res://ShipInterior/ShipInterior.tscn"
+run/main_scene="res://Space/Space.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -88,4 +76,5 @@ backward={
 
 [rendering]
 
+environment/default_clear_color=Color( 0.101961, 0.101961, 0.101961, 1 )
 environment/default_environment="res://default_env.tres"
