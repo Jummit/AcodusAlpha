@@ -1,34 +1,96 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Space/Station/Station/Station.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Screen/Screen.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Objects/PilotingComputer/PilotingComputer.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Objects/Shelf/Shelf.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Items/Item/Item.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Objects/DockingPort/DockingPort.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Space/Station/Camera.tscn" type="PackedScene" id=7]
 
-
-[sub_resource type="ViewportTexture" id=1]
+[sub_resource type="ViewportTexture" id=11]
 viewport_path = NodePath("Cameras/Front")
 
-[sub_resource type="ViewportTexture" id=2]
+[sub_resource type="ViewportTexture" id=12]
+viewport_path = NodePath("Cameras/Right")
+
+[sub_resource type="GDScript" id=3]
+script/source = "extends Sprite
+
+signal clicked
+
+onready var station : Station = $\"../../../\"
+
+
+func _on_input_event(viewport : Viewport, event : InputEvent, shape_idx : int) -> void:
+	if event is InputEventMouseButton and event.pressed and event.button_index == BUTTON_LEFT:
+		emit_signal(\"clicked\")
+"
+
+[sub_resource type="ViewportTexture" id=13]
+viewport_path = NodePath("Cameras/Left")
+
+[sub_resource type="GDScript" id=6]
+script/source = "extends Sprite
+
+signal clicked
+
+onready var station : Station = $\"../../../\"
+
+
+func _on_input_event(viewport : Viewport, event : InputEvent, shape_idx : int) -> void:
+	if event is InputEventMouseButton and event.pressed and event.button_index == BUTTON_LEFT:
+		emit_signal(\"clicked\")
+"
+
+[sub_resource type="ViewportTexture" id=10]
 viewport_path = NodePath("Cameras/Back")
 
-[node name="Tyger" instance=ExtResource( 1 )]
+[sub_resource type="GDScript" id=9]
+script/source = "extends Sprite
 
-[node name="LeftScreen" parent="Level/Objects" index="0" instance=ExtResource( 2 )]
-position = Vector2( 288.399, 304.724 )
-texture = SubResource( 1 )
+signal clicked
+
+onready var station : Station = $\"../../../\"
+
+
+func _on_input_event(viewport : Viewport, event : InputEvent, shape_idx : int) -> void:
+	if event is InputEventMouseButton and event.pressed and event.button_index == BUTTON_LEFT:
+		emit_signal(\"clicked\")
+"
+
+[node name="Tyger" index="0" instance=ExtResource( 1 )]
+visible = false
+
+[node name="Level" parent="." index="0"]
+visible = true
+
+[node name="FrontScreen" parent="Level/Objects" index="0" instance=ExtResource( 2 )]
+position = Vector2( 395.704, 311.722 )
+texture = SubResource( 11 )
 
 [node name="RightScreen" parent="Level/Objects" index="1" instance=ExtResource( 2 )]
-position = Vector2( 694.796, 307.314 )
-texture = SubResource( 2 )
+position = Vector2( 625.723, 303.445 )
+scale = Vector2( 0.416823, 0.416823 )
+texture = SubResource( 12 )
+script = SubResource( 3 )
 
-[node name="PilotingComputer" parent="Level/Objects" index="2" instance=ExtResource( 3 )]
-position = Vector2( 493.872, 368.095 )
+[node name="LeftScreen" parent="Level/Objects" index="2" instance=ExtResource( 2 )]
+position = Vector2( 163.379, 304.115 )
+scale = Vector2( 0.416823, 0.416823 )
+texture = SubResource( 13 )
+script = SubResource( 6 )
 
-[node name="Shelf1" parent="Level/Objects" index="3" instance=ExtResource( 4 )]
+[node name="BackScreen" parent="Level/Objects" index="3" instance=ExtResource( 2 )]
+position = Vector2( 390.495, 163.94 )
+scale = Vector2( 0.416823, 0.416823 )
+texture = SubResource( 10 )
+script = SubResource( 9 )
+
+[node name="PilotingComputer" parent="Level/Objects" index="4" instance=ExtResource( 3 )]
+position = Vector2( 812.486, 368.431 )
+
+[node name="Shelf1" parent="Level/Objects" index="5" instance=ExtResource( 4 )]
 position = Vector2( 200.554, 134.072 )
 
 [node name="Item" parent="Level/Objects/Shelf1/Slots/2" index="0" instance=ExtResource( 5 )]
@@ -37,10 +99,7 @@ margin_top = 11.0
 margin_right = 55.0
 margin_bottom = 61.0
 
-[node name="Shelf2" parent="Level/Objects" index="4" instance=ExtResource( 4 )]
-position = Vector2( 375.623, 136.288 )
-
-[node name="Shelf3" parent="Level/Objects" index="5" instance=ExtResource( 4 )]
+[node name="Shelf3" parent="Level/Objects" index="6" instance=ExtResource( 4 )]
 position = Vector2( 557.341, 139.612 )
 
 [node name="Item" parent="Level/Objects/Shelf3/Slots/2" index="0" instance=ExtResource( 5 )]
@@ -49,24 +108,34 @@ margin_top = 11.0
 margin_right = 55.0
 margin_bottom = 61.0
 
-[node name="Shelf4" parent="Level/Objects" index="6" instance=ExtResource( 4 )]
+[node name="Shelf4" parent="Level/Objects" index="7" instance=ExtResource( 4 )]
 position = Vector2( 744.598, 141.828 )
 
+[node name="DockingPort" parent="Level/Objects" index="8" instance=ExtResource( 6 )]
+position = Vector2( 1156.8, 402.875 )
+
 [node name="TileMap" parent="Level" index="1"]
-tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 65536, 0, 0, 65552, 0, 0, 131072, 0, 0, 131088, 0, 0, 196608, 0, 0, 196624, 0, 0, 262144, 0, 0, 262160, 0, 0, 327680, 0, 0, 327696, 0, 0, 393216, 0, 0, 393232, 0, 0, 458752, 0, 0, 458768, 0, 0, 524288, 0, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 524302, 0, 0, 524303, 0, 0, 524304, 0, 0 )
+tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 18, 0, 0, 19, 0, 0, 20, 0, 0, 21, 0, 0, 22, 0, 0, 23, 0, 0, 24, 0, 0, 65536, 0, 0, 65560, 0, 0, 131072, 0, 0, 131096, 0, 0, 196608, 0, 0, 196632, 0, 0, 262144, 0, 0, 262168, 0, 0, 327680, 0, 0, 327704, 0, 0, 393216, 0, 0, 393240, 0, 0, 458752, 0, 0, 458776, 0, 0, 524288, 0, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 524302, 0, 0, 524303, 0, 0, 524304, 0, 0, 524312, 0, 0, 589840, 0, 0, 589848, 0, 0, 655376, 0, 0, 655377, 0, 0, 655378, 0, 0, 655379, 0, 0, 655380, 0, 0, 655381, 0, 0, 655382, 0, 0, 655383, 0, 0, 655384, 0, 0 )
 
 [node name="Entry" parent="Level" index="2"]
-position = Vector2( 491.649, 283.074 )
-
-[node name="Player" parent="Level" index="3" instance=ExtResource( 6 )]
-position = Vector2( 347.225, 405.534 )
+position = Vector2( 1152.65, 367.074 )
 
 [node name="Front" parent="Cameras" index="0" instance=ExtResource( 7 )]
 
 [node name="Back" parent="Cameras" index="1" instance=ExtResource( 7 )]
 
 [node name="Camera" parent="Cameras/Back/Socket" index="0"]
-transform = Transform( -0.999808, 0, 0.0195783, 0, 1, 0, -0.0195783, 0, -0.999808, 0, 0, 0 )
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
+
+[node name="Left" parent="Cameras" index="2" instance=ExtResource( 7 )]
+
+[node name="Camera" parent="Cameras/Left/Socket" index="0"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
+
+[node name="Right" parent="Cameras" index="3" instance=ExtResource( 7 )]
+
+[node name="Camera" parent="Cameras/Right/Socket" index="0"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0 )
 
 
 [editable path="Level/Objects/Shelf1"]
@@ -76,3 +145,7 @@ transform = Transform( -0.999808, 0, 0.0195783, 0, 1, 0, -0.0195783, 0, -0.99980
 [editable path="Cameras/Front"]
 
 [editable path="Cameras/Back"]
+
+[editable path="Cameras/Left"]
+
+[editable path="Cameras/Right"]

@@ -1,4 +1,4 @@
-extends Sprite
+extends "res://Objects/Object/Object.gd"
 
 """
 Can be used to pilot the spation the computer is on around.
@@ -6,9 +6,7 @@ Can be used to pilot the spation the computer is on around.
 Select by clicking, deselect by hitting escape. Use arrow keys to move around, hold shift to switch rotation mode.
 """
 
-onready var station : Station = $"../../../"
-onready var player : KinematicBody = $"../../Player"
-
+onready var player : KinematicBody2D = $"/root/Main/Player"
 var selected : bool = false
 
 
@@ -32,6 +30,7 @@ func _get_movement_input() -> Vector3:
 	
 	return input
 
+
 func _process(delta : float) -> void:
 	if Input.is_key_pressed(KEY_ESCAPE):
 		selected = false
@@ -45,8 +44,7 @@ func _process(delta : float) -> void:
 			station.do_move(input)
 
 
-func _on_input_event(viewport : Viewport, event : InputEvent, shape_idx : int):
-	if event is InputEventMouseButton and event.pressed and event.button_index == BUTTON_LEFT:
-		if !$"/root/HeldItem".is_holding_item():
-			selected = true
-			player.set_process(false)
+func _on_clicked():
+	if !$"/root/HeldItem".is_holding_item():
+		selected = true
+		player.set_process(false)
