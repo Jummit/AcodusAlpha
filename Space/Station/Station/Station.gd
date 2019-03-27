@@ -4,14 +4,16 @@ class_name Station
 """
 A station with a 2d level and a 3d mesh
 
-Holds objects, cameras and the player. Handles movement and rotation.
+Holds objects and cameras. Handles docking, movement and rotation.
 """
 
+onready var area : Area = $Area
+onready var cameras : Spatial = $Cameras
+onready var level : Node2D = $Level
+onready var entry : Position2D = $Level/Entry
 
 const MOVEMENT_SPEED : float = .1
 const ROTATION_SPEED : float = .02
-
-onready var cameras : Spatial = $Cameras
 
 
 func _ready() -> void:
@@ -38,3 +40,11 @@ func do_move(move : Vector3) -> void:
 	translation += move * MOVEMENT_SPEED
 	
 	update_camera_sockets()
+
+
+func get_ships_in_range() -> Array:
+	var ships : Array = []
+	for overlapping_area in area.get_overlapping_areas():
+		ships.append(overlapping_area.get_parent())
+	
+	return ships

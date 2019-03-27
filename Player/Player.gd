@@ -18,7 +18,7 @@ func _process(delta : float) -> void:
 	elif Input.is_key_pressed(KEY_D):
 		motion.x = SPEED
 	
-	if test_move(transform, Vector2(0, 1)):
+	if test_move(transform, Vector2(0, 1), true):
 		if Input.is_key_pressed(KEY_W):
 			motion.y = -JUMP_POWER
 		else:
