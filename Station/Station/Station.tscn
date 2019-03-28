@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Space/Station/Station/Station.gd" type="Script" id=1]
-[ext_resource path="res://Space/Station/TileSet/TileSet.tres" type="TileSet" id=2]
+[ext_resource path="res://Station/Station/Station.gd" type="Script" id=1]
+[ext_resource path="res://Station/TileSet/TileSet.tres" type="TileSet" id=2]
 
 [sub_resource type="PrismMesh" id=1]
 
@@ -20,7 +20,7 @@ visible = false
 
 [node name="TileMap" type="TileMap" parent="Level"]
 tile_set = ExtResource( 2 )
-cell_size = Vector2( 56, 56 )
+cell_size = Vector2( 70, 70 )
 format = 1
 
 [node name="Entry" type="Position2D" parent="Level"]

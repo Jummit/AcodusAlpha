@@ -4,6 +4,7 @@ extends "res://Objects/Object/Object.gd"
 Used for moving to the ship that is docked by right clicking.
 """
 
+onready var main : Node2D = $"/root/Main"
 onready var player : KinematicBody2D = $"/root/Main/Player"
 onready var tint_layer : CanvasLayer = $"/root/Main/TintLayer"
 
@@ -20,5 +21,7 @@ func _on_clicked() -> void:
 		
 		station.level.hide()
 		station.show()
+		
+		main.current_station = docking_ship
 		
 		tint_animation_player.play_backwards("FadeIn")

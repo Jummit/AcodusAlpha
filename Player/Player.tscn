@@ -18,7 +18,7 @@ texture = ExtResource( 2 )
 shape = SubResource( 1 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
-offset = Vector2( 0, -60 )
+offset = Vector2( 0, -100 )
 current = true
 zoom = Vector2( 0.6, 0.6 )
 drag_margin_h_enabled = false

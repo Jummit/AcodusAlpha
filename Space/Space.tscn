@@ -2,8 +2,8 @@
 
 [ext_resource path="res://Space/SpaceEnvironment.tres" type="Environment" id=1]
 [ext_resource path="res://Space/Planet/Planet.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Space/Station/Tyger.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Space/Station/MinerStation.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Station/Tyger.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Station/MinerStation.tscn" type="PackedScene" id=4]
 
 [node name="Space" type="Spatial"]
 transform = Transform( 0.999985, -0.00545587, 0, 0.00545587, 0.999985, 0, 0, 0, 1, 0, 0, 0 )

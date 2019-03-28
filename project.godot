@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "MeshInstance",
 "class": "Station",
 "language": "GDScript",
-"path": "res://Space/Station/Station/Station.gd"
+"path": "res://Station/Station/Station.gd"
 } ]
 _global_script_class_icons={
 "Station": ""
