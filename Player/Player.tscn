@@ -21,4 +21,6 @@ shape = SubResource( 1 )
 offset = Vector2( 0, -60 )
 current = true
 zoom = Vector2( 0.6, 0.6 )
+drag_margin_h_enabled = false
+drag_margin_v_enabled = false
 
